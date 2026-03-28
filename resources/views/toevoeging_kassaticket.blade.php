@@ -18,27 +18,36 @@
 </head>
 
 <body class="">
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @endif
+
     Kassaticket toevoegen
 
     <form action="{{ route('kassaticket.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="klant" class="form-label">Naam</label>
-            <input type="text" class="form-control" id="klant" name="klant" placeholder="Uw naam" value="{{ old('klant') }}">
+            <input type="text" class="form-control" id="klant" name="klant" placeholder="Uw naam"
+                value="{{ old('klant') }}">
             @error('klant')
                 <div style="color:red">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="naam@voorbeeld.com" value="{{ old('email') }}">
+            <input type="email" class="form-control" id="email" name="email" placeholder="naam@voorbeeld.com"
+                value="{{ old('email') }}">
             @error('email')
                 <div style="color:red">{{ $message }}</div>
             @enderror
         </div>
         <div class="mb-3">
             <label for="ticket_path" class="form-label">Foto van uw kassaticket</label>
-            <input class="form-control" type="file" id="ticket_path" name="ticket_path" value="{{ old('ticket_path') }}">
+            <input class="form-control" type="file" id="ticket_path" name="ticket_path"
+                value="{{ old('ticket_path') }}">
             @error('ticket_path')
                 <div style="color:red">{{ $message }}</div>
             @enderror

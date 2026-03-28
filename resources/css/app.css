@@ -1,8 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
-@tailwind base;
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 
 

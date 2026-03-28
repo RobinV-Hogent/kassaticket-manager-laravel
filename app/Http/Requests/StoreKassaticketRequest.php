@@ -25,7 +25,7 @@ class StoreKassaticketRequest extends FormRequest
         return [
             'klant' => 'required|max:100',
             'email' => 'required|email',
-            'ticket_path' => 'required|mimes:png,jpeg,jpg,pdf|max:2048'
+            'ticket_path' => 'required|file|mimes:png,jpeg,jpg,pdf|max:4096'
         ];
     }
 }

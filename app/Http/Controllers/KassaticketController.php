@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreKassaticketRequest;
 use App\Models\Kassaticket;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class KassaticketController extends Controller
      */
     public function index()
     {
-        //
+        return view('toevoeging_kassaticket');
     }
 
     /**
@@ -26,9 +27,11 @@ class KassaticketController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreKassaticketRequest $request)
     {
-        //
+        $data = Kassaticket::create($request->validated());
+
+        return redirect()->route('kassaticket.index')->with('success', 'Kassaticket aangemaakt!');
     }
 
     /**

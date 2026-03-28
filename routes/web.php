@@ -1,11 +1,12 @@
 <?php
 
+use App\Http\Controllers\KassaticketController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Kassaticket;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [KassaticketController::class, 'index'])->name('kassaticket.index');
+Route::post('/', [KassaticketController::class, 'store'])->name('kassaticket.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

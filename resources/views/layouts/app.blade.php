@@ -33,8 +33,10 @@
         @endisset
 
         <!-- Page Content -->
-        <main>
-            @yield('content')
+        <main class="container my-5">
+            <div class="col col-md-10 mx-md-auto">
+                @yield('content')
+            </div>
         </main>
     </div>
 </body>

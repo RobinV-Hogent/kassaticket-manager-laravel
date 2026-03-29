@@ -15,6 +15,13 @@ class KassaticketController extends Controller
         return view('toevoeging_kassaticket');
     }
 
+    public function admin()
+    {
+        $data = Kassaticket::paginate(perPage: 10);
+
+        return view('admin_dashboard', compact('data'));
+    }
+
     public function store(StoreKassaticketRequest $request)
     {
         $data = $request->validated();
@@ -29,5 +36,4 @@ class KassaticketController extends Controller
 
         return redirect()->route('kassaticket.index')->with('success', 'Kassaticket aangemaakt!');
     }
-
 }

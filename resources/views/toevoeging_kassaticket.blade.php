@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
@@ -20,9 +20,13 @@
     @endif
 </head>
 
-<body class="mx-5">
+<body class="mx-5"> --}}
 
-    <h1 class="text-center my-5">Voeg uw kassaticket toe!</h1>
+@extends('layouts.app')
+
+
+    @section('content')
+    <h1 class="text-center py-5 text-4xl font-extrabold">Voeg uw kassaticket toe!</h1>
 
     <div class="container justify-center">
 
@@ -64,7 +68,7 @@
             @endif
         </div>
     </div>
+    @endsection
+{{-- </body>
 
-</body>
-
-</html>
+</html> --}}

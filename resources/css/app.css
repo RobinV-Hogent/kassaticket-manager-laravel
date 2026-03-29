@@ -1,7 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 
 body {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Ubuntu", sans-serif !important;
     background-color: white;
 }
 
@@ -9,9 +9,9 @@ h1, h2, h3, h4 {
     color: #006847;
 }
 
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 
 

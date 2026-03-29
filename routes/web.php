@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\KassaticketController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Requests\ModifyKassaticketRequest;
 use App\Models\Kassaticket;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [KassaticketController::class, 'index'])->name('kassaticket.index');
 Route::post('/', [KassaticketController::class, 'store'])->name('kassaticket.store');
+Route::put('kassaticket/{id}', [KassaticketController::class, 'modify'])->name('kassaticket.modify');
+
 Route::get('/admin-dashboard', [KassaticketController::class, 'admin'])->middleware(['auth'])->name('kassaticket.admin');
 
 
@@ -20,4 +23,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

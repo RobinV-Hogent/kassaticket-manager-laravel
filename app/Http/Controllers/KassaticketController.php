@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ModifyKassaticketRequest;
 use App\Http\Requests\StoreKassaticketRequest;
 use App\Models\Kassaticket;
+use Error;
+use Exception;
 use Illuminate\Container\Attributes\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Symfony\Component\HttpKernel\Log\Logger;
 
 class KassaticketController extends Controller
 {
@@ -20,6 +25,19 @@ class KassaticketController extends Controller
         $data = Kassaticket::paginate(perPage: 10);
 
         return view('admin_dashboard', compact('data'));
+    }
+
+    public function modify(ModifyKassaticketRequest $request, $id)
+    {
+        $request->validated();
+        $ticket = Kassaticket::findOrFail($id);
+
+        $ticket->update([
+            "klant" => $request->klant[$id],
+            "email" => $request->email[$id]
+        ]);
+
+        return back()->with('success', 'Informatie werd aangepast');
     }
 
     public function store(StoreKassaticketRequest $request)

@@ -109,6 +109,12 @@ De user kan ook uitloggen aan de hand van de dropdown.
 
 Nu komt de uitwerking van de admin pagina zelf.
 Ik will de data tonen in een tabel weergave, waardoor de user kan pagineren
+De waarden moeten aanpasbaar zijn voor de admin, ik ga de data dus weergeven in textboxes zodat de data gewijzigd kan worden.
+
+Ik heb beslist om een nieuwe request file aan te maken die specifiek voor dit formulier werkt. Hiervoor kan ik het meeste overnemen uit de StoreKassaticketRequest file.
+
+Ik ga ook een nieuwe route moeten aanmaken die de data van een kassaticket kunnen aanpassen.
+
 
 
 

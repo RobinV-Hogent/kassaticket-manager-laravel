@@ -6,6 +6,23 @@
             {{ session('success') }}
         </div>
     @endif
+
+
+    <form method="GET" action="{{ route('kassaticket.admin') }}">
+        <div class="row g-3">
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Naam" name="name" value="{{ request('name') }}">
+            </div>
+            <div class="col">
+                <input type="text" class="form-control" placeholder="Email" name="email"
+                    value="{{ request('email') }}">
+            </div>
+        </div>
+        <br>
+        <input type="submit" class="btn btn-success">
+    </form>
+    <br>
+
     <table class="table table-hover rounded-md overflow-hidden">
         <thead>
             <tr>
@@ -43,7 +60,11 @@
                                 @enderror
                             </div>
                         </td>
-                        <td><a href="">open file</a></td>
+                        <td>
+                            <a href="{{ asset('storage/' . $ticket->bestand) }}" target="_blank">
+                                open file
+                            </a>
+                        </td>
                         <td><button class="btn btn-success" type="submit">Opslaan</button></td>
                     </tr>
                 </form>

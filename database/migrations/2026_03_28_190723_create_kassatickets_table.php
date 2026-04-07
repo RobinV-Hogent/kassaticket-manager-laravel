@@ -9,6 +9,9 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+
+    // Maakt een nieuwe tabel aan in de database met de velden: id, klant, email, ticket_path, (timestamps voor created en updated)
+    // Mijn toegevoegde velden mogen ook niet null zijn (er zal wel altijd iets van data inzitten)
     public function up(): void
     {
         Schema::create('kassatickets', function (Blueprint $table) {

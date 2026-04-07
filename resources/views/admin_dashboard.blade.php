@@ -19,7 +19,7 @@
             </div>
         </div>
         <br>
-        <input type="submit" class="btn btn-success">
+        <input type="submit" class="btn btn-success" value="Zoeken">
     </form>
     <br>
 

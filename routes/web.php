@@ -18,6 +18,11 @@ Route::put('kassaticket/{id}', [KassaticketController::class, 'modify'])->name('
 // GET '/admin-dashboard' Deze endpoint geeft de admin een overview van alle ingezende kassatickets
 Route::get('/admin-dashboard', [KassaticketController::class, 'admin'])->middleware(['auth'])->name('kassaticket.admin');
 
+// Route voor het ophalen van een kassaticket.
+// Alleen een ingelogde gebruiker kan de bestanden bekijken/downloaden
+Route::get('/tickets/view-file/{id}', [KassaticketController::class, 'showFile'])->middleware(['auth'])->name('ticket.view');
+
+
 // Extra routes in verband met authenticatie
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

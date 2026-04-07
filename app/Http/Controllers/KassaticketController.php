@@ -30,7 +30,7 @@ class KassaticketController extends Controller
         $name = $request->input('name', '');
         $email = $request->input('email', '');
 
-        $data = Kassaticket::where('klant', 'like', '%'.$name.'%')->where('email', 'like', '%'.$email.'%')->paginate(perPage: 10);
+        $data = Kassaticket::where('klant', 'like', '%' . $name . '%')->where('email', 'like', '%' . $email . '%')->paginate(perPage: 10);
         return view('admin_dashboard', compact('data'));
     }
 
@@ -70,5 +70,17 @@ class KassaticketController extends Controller
 
         // Breng de gebruiker terug naar de homepage waar die een melding zal ontvanging indien de methode correct werd uitgevoerd
         return redirect()->route('kassaticket.index')->with('success', 'Kassaticket aangemaakt!');
+    }
+
+    public function showFile($id)
+    {
+        $ticket = Kassaticket::findOrFail($id);
+        $path = storage_path('app\\private\\' . $ticket->ticket_path);
+
+        if (!file_exists($path)) {
+            abort(404);
+        }
+
+        return response()->file($path);
     }
 }

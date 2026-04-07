@@ -61,7 +61,7 @@
                             </div>
                         </td>
                         <td>
-                            <a href="{{ asset('storage/' . $ticket->bestand) }}" target="_blank">
+                            <a href="{{ route('ticket.view', $ticket->id) }}" target="_blank" class="btn btn-link">
                                 open file
                             </a>
                         </td>
